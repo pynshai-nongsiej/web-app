@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --border: #e2e2e2;
+  --muted: #f9f9f9;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.minimal-card {
+  @apply bg-white border border-black rounded-none p-6 transition-all;
+}
+
+.minimal-button {
+  @apply border border-black px-6 py-3 font-bold uppercase tracking-tighter transition-all hover:bg-black hover:text-white active:scale-95;
+}
+
+.stat-box {
+  @apply p-4 border-l-4 border-black bg-gray-50;
+}
+
+h1,
+h2,
+h3 {
+  @apply tracking-tighter uppercase font-black;
+}
