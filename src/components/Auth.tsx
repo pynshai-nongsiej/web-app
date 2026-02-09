@@ -25,7 +25,8 @@ export default function Auth() {
                 if (error) throw error;
             }
         } catch (error: any) {
-            setMessage(error.message);
+            console.error('Connection Error:', error);
+            setMessage(error.message || 'Connection failed. Check your internet or Supabase URL.');
         } finally {
             setLoading(false);
         }
