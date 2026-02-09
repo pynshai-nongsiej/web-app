@@ -8,6 +8,8 @@ import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/context/AuthContext';
 import Auth from '@/components/Auth';
 
+import Link from 'next/link';
+
 export default function Home() {
   const { user, loading: authLoading, signOut } = useAuth();
   const [mode, setMode] = useState<'dashboard' | 'session'>('dashboard');
@@ -193,8 +195,8 @@ export default function Home() {
                   disabled={!!feedback}
                   onClick={() => handleAnswer(label)}
                   className={`w-full text-left p-6 border-2 transition-all font-bold ${feedback
-                      ? (label === q.correct_answer ? 'bg-black text-white border-black' : 'bg-white border-gray-200 text-gray-400')
-                      : 'border-black hover:bg-black hover:text-white'
+                    ? (label === q.correct_answer ? 'bg-black text-white border-black' : 'bg-white border-gray-200 text-gray-400')
+                    : 'border-black hover:bg-black hover:text-white'
                     }`}
                 >
                   <span className="mr-4">{label}.</span>
@@ -242,7 +244,10 @@ export default function Home() {
       <section className="grid grid-cols-2 gap-8 mb-16">
         <div className="stat-box">
           <p className="text-xs font-black mb-1">MASTERY</p>
-          <p className="text-5xl font-black">{stats.mastery}%</p>
+          <div className="flex items-baseline justify-between">
+            <p className="text-5xl font-black">{stats.mastery}%</p>
+            <Link href="/analytics" className="text-[10px] font-black underline uppercase">View Data →</Link>
+          </div>
         </div>
         <div className="stat-box">
           <p className="text-xs font-black mb-1">ACCURACY</p>
